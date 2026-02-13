@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+
+body{
+    overflow: hidden;
+    font-family: fantasy;
+    background-color: #77738e;
+}
+
+.active{
+    background-color: #303f6b;
+    color: #432cd8;
+}
+
+.active > span{
+    background-color: #432cd8;
+}
+.hover {
+    background-color: #303f6b;
+}

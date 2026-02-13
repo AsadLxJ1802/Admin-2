@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { PATH } from "../components"
 import { Categoriy, Home, NotFound, Products } from "../pages"
+import { Header, SiteBar } from "../modules"
 
 
 
@@ -12,7 +13,13 @@ const DashboardRoute = () => {
         {id:1 , path:PATH.notFound , element:<NotFound/>},
     ]
     return(
-        <Routes>{dashboardList.map(item => <Route key={item.id} path={item.path} element={item.element} />)}</Routes>
+        <div className="flex">
+            <SiteBar/>
+            <div className="w-[78%] h-screen overflow-y-auto">
+                <Header/>
+                <Routes>{dashboardList.map(item => <Route key={item.id} path={item.path} element={item.element} />)}</Routes>
+            </div>
+        </div>
     )
 }
 export default DashboardRoute
