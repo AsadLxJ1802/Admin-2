@@ -42,3 +42,18 @@ export const RegisterFn = (setLoading:Dispatch<SetStateAction<boolean>>,evt:Subm
 
 
 
+export const CrudFn = (URL:string , data:any, navigate:NavigateFunction, setLoading:Dispatch<SetStateAction<boolean>> , id:string| undefined) => {
+    if(id){
+        instance.put(`${URL}/${id}`,data).then(() => {
+            toast.success("Muffaqiyatli o'zgartirildi")
+            setTimeout(() => navigate(-1) ,1000)
+        }).catch(() => toast.error("Xattolik bor")).finally(() => setLoading(false))
+    }
+    else{
+        instance.post(URL,data).then(() => {
+            toast.success("Muffaqiyatli qoshildi")
+            setTimeout(() => navigate(-1) , 1000)
+        }).catch(() => toast.error("Xattolik bor")).finally(() => setLoading(false))
+    }
+}
+
